@@ -26,7 +26,6 @@ BuildRequires: perl(Module::Build::Compat)
 BuildArch: noarch
 
 %description
-
 This module provides routines for capturing STDOUT and STDERR from perl
 subroutines, forked system calls (e.g. 'system()', 'fork()') and from XS or
 C modules.
