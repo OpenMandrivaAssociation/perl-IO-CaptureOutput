@@ -1,7 +1,7 @@
 
 %define realname   IO-CaptureOutput
 %define version    1.0801
-%define release    %mkrel 1
+%define release    %mkrel 2
 
 Name:       perl-%{realname}
 Version:    %{version}
