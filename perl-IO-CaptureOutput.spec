@@ -1,18 +1,16 @@
+%define upstream_name    IO-CaptureOutput
+%define upstream_version 1.1102
 
-%define realname   IO-CaptureOutput
-%define version    1.1101
-%define release    %mkrel 1
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
-Name:       perl-%{realname}
-Version:    %{version}
-Release:    %{release}
-License:    GPL or Artistic
-Group:      Development/Perl
 Summary:    capture STDOUT and STDERR from Perl code, subprocesses or XS
-Source:     http://www.cpan.org/modules/by-module/IO/%{realname}-%{version}.tar.gz
-Url:        http://search.cpan.org/dist/%{realname}
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: perl-devel
+License:    GPL+ or Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/IO/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildRequires: perl(Carp)
 BuildRequires: perl(Exporter)
 BuildRequires: perl(File::Basename)
@@ -24,25 +22,22 @@ BuildRequires: perl(Test::More)
 BuildRequires: perl(Module::Build::Compat)
 
 BuildArch: noarch
+BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 This module provides routines for capturing STDOUT and STDERR from perl
 subroutines, forked system calls (e.g. 'system()', 'fork()') and from XS or
 C modules.
 
-
-
-
-
 %prep
-%setup -q -n %{realname}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
-make test
+%make test
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -56,6 +51,3 @@ rm -rf $RPM_BUILD_ROOT
 %doc Changes META.yml LICENSE README
 %{_mandir}/man3/*
 %perl_vendorlib/*
-
-
-
