@@ -1,4 +1,5 @@
 removed_sources:
   IO-CaptureOutput-1.1102.tar.gz: ac95c24b244723ec86c3f2128b9fa7dea037de55
-sources:
   IO-CaptureOutput-1.1103.tar.gz: 2ffd58aaa6348f256dace38a29b06bd439f770a5
+sources:
+  IO-CaptureOutput-1.1104.tar.gz: fa39e45394ac3ce0949fc34c90bae871b0fc79dc
