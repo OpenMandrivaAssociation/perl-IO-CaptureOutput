@@ -5,7 +5,7 @@ Summary:	Capture STDOUT and STDERR from Perl code, subprocesses or XS
 Name:		perl-%{modname}
 Epoch:		1
 Version:	%perl_convert_version %{modver}
-Release:	2
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
