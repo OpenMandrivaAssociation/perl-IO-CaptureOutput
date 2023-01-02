@@ -1,15 +1,13 @@
 %define modname	IO-CaptureOutput
-%define modver 1.1104
 
 Summary:	Capture STDOUT and STDERR from Perl code, subprocesses or XS
 Name:		perl-%{modname}
-Epoch:		1
-Version:	%perl_convert_version %{modver}
+Version:	1.1105
 Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
-Source0:	http://www.cpan.org/modules/by-module/IO/%{modname}-%{modver}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/IO/%{modname}-%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	perl(Carp)
 BuildRequires:	perl(Exporter)
@@ -28,17 +26,17 @@ subroutines, forked system calls (e.g. 'system()', 'fork()') and from XS or
 C modules.
 
 %prep
-%setup -qn %{modname}-%{modver}
+%autosetup -p1 -n %{modname}-%{version}
+%__perl Makefile.PL INSTALLDIRS=vendor
 
 %build
-%__perl Makefile.PL INSTALLDIRS=vendor
-%make
+%make_build
 
 %check
 %make test
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %doc Changes META.yml LICENSE README
